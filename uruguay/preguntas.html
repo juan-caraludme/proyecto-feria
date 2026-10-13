@@ -6,23 +6,89 @@
   <title>Preguntas - PedidosYa</title>
   <link rel="stylesheet" href="../css/estilos.css">
 </head>
-<body>
-  <!--
-    PÁGINA PROVISORIA: reemplazar por la página de preguntas de los alumnos.
-    Formato esperado:
-      1. Preguntas de opción múltiple sobre PedidosYa
-      2. Botón "Ver resultado"
-      3. Mostrar el puntaje en pantalla (ej: "Juan, sacaste 4/5")
-    Tip: el nombre del visitante se puede leer con localStorage.getItem("nombre")
-  -->
-  <main class="contenedor">
-    <a href="info.html" class="boton-volver">← Volver</a>
+<body class="pagina-uruguay">
 
-    <div class="caja">
-      <h1>Preguntas sobre PedidosYa</h1>
-      <p>Contenido en preparación. Acá van las preguntas.</p>
-      <a href="../index.html" class="boton boton-uruguay">Volver al inicio</a>
-    </div>
+  <header class="encabezado encabezado-uruguay">
+    <a href="info.html" class="boton-volver">← Volver a la información</a>
+    <img src="../img/uruguay.svg" alt="Bandera de Uruguay" class="bandera-grande">
+    <h1 class="titulo">¿Cuánto sabés de PedidosYa?</h1>
+    <p class="subtitulo">Elegí una opción en cada pregunta y apretá "Ver resultado".</p>
+  </header>
+
+  <main class="contenedor">
+
+    <!--
+      Cada pregunta es un <fieldset>.
+      data-correcta = la letra de la opción correcta (a, b o c).
+      Todas las opciones de una misma pregunta tienen el mismo "name".
+    -->
+    <form id="quiz">
+
+      <fieldset class="caja pregunta" data-correcta="b">
+        <legend><span class="numero-pregunta">Pregunta 1 de 5</span>¿En qué año se lanzó oficialmente PedidosYa?</legend>
+        <label class="opcion"><input type="radio" name="p1" value="a"> 2001</label>
+        <label class="opcion"><input type="radio" name="p1" value="b"> 2009</label>
+        <label class="opcion"><input type="radio" name="p1" value="c"> 2015</label>
+        <p class="mensaje-pregunta"></p>
+      </fieldset>
+
+      <fieldset class="caja pregunta" data-correcta="a">
+        <legend><span class="numero-pregunta">Pregunta 2 de 5</span>¿Dónde nació la idea de PedidosYa?</legend>
+        <label class="opcion"><input type="radio" name="p2" value="a"> En un proyecto de la Universidad ORT de Uruguay</label>
+        <label class="opcion"><input type="radio" name="p2" value="b"> En una empresa de Silicon Valley</label>
+        <label class="opcion"><input type="radio" name="p2" value="c"> En un restaurante de Buenos Aires</label>
+        <p class="mensaje-pregunta"></p>
+      </fieldset>
+
+      <fieldset class="caja pregunta" data-correcta="c">
+        <legend><span class="numero-pregunta">Pregunta 3 de 5</span>¿Cuál fue el primer pedido de la historia de PedidosYa?</legend>
+        <label class="opcion"><input type="radio" name="p3" value="a"> Una pizza con fainá</label>
+        <label class="opcion"><input type="radio" name="p3" value="b"> Una hamburguesa con gaseosa</label>
+        <label class="opcion"><input type="radio" name="p3" value="c"> Un chivito con papas fritas</label>
+        <p class="mensaje-pregunta"></p>
+      </fieldset>
+
+      <fieldset class="caja pregunta" data-correcta="b">
+        <legend><span class="numero-pregunta">Pregunta 4 de 5</span>Al principio, ¿cómo recibían los pedidos los restaurantes sin computadora?</legend>
+        <label class="opcion"><input type="radio" name="p4" value="a"> Por correo electrónico</label>
+        <label class="opcion"><input type="radio" name="p4" value="b"> Por fax</label>
+        <label class="opcion"><input type="radio" name="p4" value="c"> Por WhatsApp</label>
+        <p class="mensaje-pregunta"></p>
+      </fieldset>
+
+      <fieldset class="caja pregunta" data-correcta="a">
+        <legend><span class="numero-pregunta">Pregunta 5 de 5</span>¿Qué empresa compró PedidosYa en 2014?</legend>
+        <label class="opcion"><input type="radio" name="p5" value="a"> Delivery Hero</label>
+        <label class="opcion"><input type="radio" name="p5" value="b"> Mercado Libre</label>
+        <label class="opcion"><input type="radio" name="p5" value="c"> Rappi</label>
+        <p class="mensaje-pregunta"></p>
+      </fieldset>
+
+      <p id="aviso" class="aviso oculto"></p>
+
+      <div class="llamado">
+        <button type="submit" id="corregir" class="boton boton-uruguay boton-grande">Ver resultado</button>
+      </div>
+    </form>
+
+    <!-- RESULTADO (aparece al corregir) -->
+    <section id="resultado" class="caja resultado oculto">
+      <h2>Tu resultado</h2>
+      <p id="puntaje" class="puntaje"></p>
+      <p id="mensaje-final"></p>
+      <div class="botones">
+        <button type="button" id="reintentar" class="boton boton-claro">Volver a intentar</button>
+        <a href="../argentina/info.html" class="boton boton-argentina">Conocer Mercado Libre</a>
+        <a href="../index.html" class="boton">Inicio</a>
+      </div>
+    </section>
+
   </main>
+
+  <footer class="pie">
+    <p><strong>Colegio Caraludmé · 6to año · 2026</strong></p>
+  </footer>
+
+  <script src="../js/quiz.js"></script>
 </body>
 </html>

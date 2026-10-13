@@ -153,7 +153,7 @@ body {
 .tarjeta-argentina { border-top-color: var(--celeste-argentina); }
 .tarjeta-uruguay   { border-top-color: var(--azul-uruguay); }
 
-.bandera { font-size: 2.6rem; line-height: 1; }
+.bandera { width: 56px; height: auto; border-radius: 6px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); }
 .pais { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--texto-suave); margin-top: 6px; }
 .app { font-size: 1.5rem; font-weight: 800; }
 .descripcion { color: var(--texto-suave); }
@@ -228,4 +228,181 @@ body {
   color: var(--texto-suave);
   padding: 24px 16px;
   border-top: 1px solid var(--borde);
+}
+
+/* =========================================
+   PÁGINAS DE CADA PAÍS (información y preguntas)
+   ========================================= */
+
+/* Encabezado con el color de cada país */
+.encabezado-argentina { background: linear-gradient(135deg, var(--celeste-argentina), #4a8fcc); }
+.encabezado-uruguay   { background: linear-gradient(135deg, var(--azul-uruguay), #3a6fd8); }
+
+.encabezado .boton-volver {
+  display: block;
+  text-align: left;
+  color: var(--blanco);
+  max-width: 900px;
+  margin: 0 auto 16px;
+}
+
+.bandera-grande { display: block; width: 72px; height: auto; margin: 0 auto 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
+
+/* Secciones de información */
+.caja h2 {
+  font-size: 1.25rem;
+  color: var(--texto);
+}
+
+.caja p:last-child { margin-bottom: 0; }
+
+.lista {
+  padding-left: 20px;
+  color: var(--texto-suave);
+}
+
+.lista li { margin-bottom: 10px; }
+.lista li:last-child { margin-bottom: 0; }
+
+/* Cifras destacadas */
+.cifras {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en el celular */
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cifra {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 16px;
+  text-align: center;
+}
+
+.cifra strong {
+  display: block;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+
+.cifra span { font-size: 0.85rem; color: var(--texto-suave); }
+
+.pagina-argentina .cifra strong { color: #3d7ab8; }
+.pagina-uruguay .cifra strong   { color: var(--azul-uruguay); }
+
+/* Botón grande al final de la página */
+.llamado {
+  text-align: center;
+  padding: 8px 0 16px;
+}
+
+.boton-grande {
+  font-size: 1.1rem;
+  padding: 16px 32px;
+}
+
+/* ---- Preguntas ---- */
+.pregunta {
+  border: none;
+  min-width: 0; /* evita que se desborde en celulares */
+}
+
+/* float hace que el legend quede adentro de la caja y no sobre el borde */
+.pregunta legend {
+  float: left;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.pregunta .opcion { clear: both; }
+
+.pregunta .numero-pregunta {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.opcion:last-of-type { margin-bottom: 0; }
+
+.opcion input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.pagina-argentina .opcion:has(input:checked) { border-color: var(--celeste-argentina); background: #eef6fd; }
+.pagina-uruguay .opcion:has(input:checked)   { border-color: var(--azul-uruguay); background: #eef2fb; }
+
+/* Colores después de corregir */
+.opcion.correcta   { border-color: #1e9e5a !important; background: #e7f7ee !important; }
+.opcion.incorrecta { border-color: #d93a3a !important; background: #fdecec !important; }
+
+.mensaje-pregunta {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.mensaje-pregunta.bien { color: #1e9e5a; }
+.mensaje-pregunta.mal  { color: #d93a3a; }
+
+.aviso {
+  color: #d93a3a;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Cuadro del resultado final */
+.resultado {
+  text-align: center;
+  border-top: 8px solid var(--texto);
+}
+
+.pagina-argentina .resultado { border-top-color: var(--celeste-argentina); }
+.pagina-uruguay .resultado   { border-top-color: var(--azul-uruguay); }
+
+.resultado .puntaje {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 8px 0;
+  color: var(--texto);
+}
+
+.resultado .botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.boton-claro {
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+.oculto { display: none; }
+
+/* En pantallas grandes, las 4 cifras en una sola fila */
+@media (min-width: 700px) {
+  .cifras { grid-template-columns: repeat(4, 1fr); }
 }

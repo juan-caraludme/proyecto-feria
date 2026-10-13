@@ -19,6 +19,7 @@
       background: var(--blanco);
       border-radius: var(--radio);
     }
+    .banderas-qr img { height: 1em; vertical-align: -0.1em; border-radius: 2px; box-shadow: 0 0 0 1px var(--borde); }
     .url { font-size: 0.9rem; color: var(--texto-suave); word-break: break-all; margin: 12px 0 24px; }
 
     /* Al imprimir, ocultamos el botón */
@@ -34,8 +35,8 @@
     <div class="caja hoja-qr">
       <p class="etiqueta" style="background: var(--fondo);">Feria Cultural 2026</p>
       <h1>Software del Río de la Plata</h1>
-      <p>🇦🇷 Mercado Libre · 🇺🇾 PedidosYa</p>
-      <p class="escanea">📱 Escaneá para participar</p>
+      <p class="banderas-qr"><img src="img/argentina.svg" alt=""> Mercado Libre · <img src="img/uruguay.svg" alt=""> PedidosYa</p>
+      <p class="escanea">Escaneá para participar</p>
 
       <div id="qr"></div>
       <p class="url" id="texto-url"></p>
