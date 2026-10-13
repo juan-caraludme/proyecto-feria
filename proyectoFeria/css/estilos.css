@@ -1,0 +1,231 @@
+/* =========================================
+   ESTILOS COMPARTIDOS - Feria Cultural
+   Todas las páginas usan este archivo.
+   ========================================= */
+
+/* ---- Variables de colores ---- */
+:root {
+  --celeste-argentina: #74acdf;
+  --amarillo-sol: #f6b40e;
+  --azul-uruguay: #0038a8;
+  --rojo-pedidosya: #ea004b;
+  --amarillo-meli: #ffe600;
+
+  --fondo: #f4f7fb;
+  --blanco: #ffffff;
+  --texto: #1d2433;
+  --texto-suave: #5b6576;
+  --borde: #dde3ec;
+
+  --radio: 16px;
+  --sombra: 0 4px 16px rgba(29, 36, 51, 0.08);
+}
+
+/* ---- Base ---- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  flex: 1;
+}
+
+/* ---- Encabezado ---- */
+.encabezado {
+  text-align: center;
+  padding: 40px 16px 32px;
+  color: var(--blanco);
+  background: linear-gradient(135deg, var(--celeste-argentina), var(--azul-uruguay));
+}
+
+.etiqueta {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.titulo {
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* ---- Pasos ---- */
+.paso {
+  margin-bottom: 28px;
+}
+
+.paso-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--texto);
+  color: var(--blanco);
+  font-size: 0.95rem;
+}
+
+/* ---- Campo de texto ---- */
+.campo {
+  width: 100%;
+  font-size: 1rem;
+  padding: 14px 16px;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  background: var(--blanco);
+  color: var(--texto);
+}
+
+.campo:focus {
+  outline: none;
+  border-color: var(--celeste-argentina);
+}
+
+/* ---- Tarjetas de país ---- */
+.tarjetas {
+  display: flex;
+  flex-direction: column; /* en el celular, una abajo de la otra */
+  gap: 16px;
+}
+
+.tarjeta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  font: inherit;
+  color: var(--texto);
+  background: var(--blanco);
+  border: 2px solid var(--borde);
+  border-top: 8px solid;
+  border-radius: var(--radio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(29, 36, 51, 0.14);
+}
+
+.tarjeta-argentina { border-top-color: var(--celeste-argentina); }
+.tarjeta-uruguay   { border-top-color: var(--azul-uruguay); }
+
+.bandera { font-size: 2.6rem; line-height: 1; }
+.pais { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--texto-suave); margin-top: 6px; }
+.app { font-size: 1.5rem; font-weight: 800; }
+.descripcion { color: var(--texto-suave); }
+
+.flecha {
+  margin-top: 10px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--blanco);
+}
+
+.tarjeta-argentina .flecha { background: var(--celeste-argentina); }
+.tarjeta-uruguay .flecha   { background: var(--azul-uruguay); }
+
+/* Animación al tocar una tarjeta */
+.tarjeta.seleccionada {
+  animation: elegir 0.4s ease;
+}
+
+@keyframes elegir {
+  50%  { transform: scale(0.96); }
+  100% { transform: scale(1.02); }
+}
+
+/* En pantallas grandes, las tarjetas van una al lado de la otra */
+@media (min-width: 700px) {
+  .tarjetas { flex-direction: row; }
+}
+
+/* ---- Botones reutilizables (para las páginas de los alumnos) ---- */
+.boton {
+  display: inline-block;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--blanco);
+  background: var(--texto);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+.boton-argentina { background: var(--celeste-argentina); }
+.boton-uruguay   { background: var(--azul-uruguay); }
+
+.boton-volver {
+  display: inline-block;
+  color: var(--texto-suave);
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ---- Caja de contenido genérica ---- */
+.caja {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  padding: 24px 20px;
+  box-shadow: var(--sombra);
+  margin-bottom: 20px;
+}
+
+.caja h2 { margin-bottom: 8px; }
+.caja p  { margin-bottom: 16px; color: var(--texto-suave); }
+
+/* ---- Pie de página ---- */
+.pie {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  padding: 24px 16px;
+  border-top: 1px solid var(--borde);
+}
